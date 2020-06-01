@@ -50,18 +50,23 @@
 
     <head>
         <title>Task Manager with PHP and MySQL</title>
+        <link rel="stylesheet" href="<?php echo SITEURL; ?>css/style.css" />
     </head>
     
     <body>
-    
+        
+        
+        <div class="wrapper">
+        
+        
         <h1>TASK MANAGER</h1>
         
-        <div class="menu">
+        
             
-            <a href="<?php echo SITEURL; ?>">Home</a>
-            <a href="<?php echo SITEURL; ?>manage-list.php">Manage Lists</a>
+            <a class="btn-secondary" href="<?php echo SITEURL; ?>">Home</a>
+            <a class="btn-secondary" href="<?php echo SITEURL; ?>manage-list.php">Manage Lists</a>
             
-        </div>
+       
         
         
         <h3>Update List Page</h3>
@@ -79,7 +84,7 @@
         
         <form method="POST" action="">
         
-            <table>
+            <table class="tbl-half">
                 <tr>
                     <td>List Name: </td>
                     <td><input type="text" name="list_name" value="<?php echo $list_name; ?>" required="required" /></td>
@@ -95,12 +100,13 @@
                 </tr>
                 
                 <tr>
-                    <td><input type="submit" name="submit" value="UPDATE" /></td>
+                    <td><input class="btn-lg btn-primary" type="submit" name="submit" value="UPDATE" /></td>
                 </tr>
             </table>
             
         </form>
         
+        </div>
         
     
     </body>

@@ -1,0 +1,117 @@
+/*
+    Theme - Task Manager
+    Version - 1.0
+    Author - Vijay Thapa
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+}
+
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+h1{
+    color: #3867d6;
+    margin-bottom: 2%;
+}
+h3{
+    margin: 2% 0;
+}
+
+.menu{
+    margin-bottom: 2%;
+}
+
+.menu a{
+    font-weight: bold;
+    margin-right: 1%;
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
+
+.btn-primary{
+    background-color: #26de81;
+    padding: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-primary:hover{
+    background-color: #20bf6b;
+}
+
+.btn-secondary{
+    background-color: #778ca3;
+    padding: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+.btn-secondary:hover{
+    background-color: #4b6584;
+}
+
+.btn-lg{
+    width: 50%;
+}
+
+
+.tbl-full{
+    width: 100%;
+}
+
+table tr th{
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 1%;
+    padding-top: 3%;
+}
+
+table tr td{
+    padding: 1%;
+}
+
+.tbl-half{
+    width: 40%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

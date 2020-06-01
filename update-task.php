@@ -44,14 +44,17 @@
 <html>
     <head>
         <title>Task Manager with PHP and MySQL</title>
+        <link rel="stylesheet" href="<?php echo SITEURL; ?>css/style.css" />
     </head>
     
     <body>
         
+        <div class="wrapper">
+        
         <h1>TASK MANAGER</h1>
         
         <p>
-            <a href="<?php echo SITEURL; ?>">Home</a>
+            <a class="btn-secondary" href="<?php echo SITEURL; ?>">Home</a>
         </p>
         
         <h3>Update Task Page</h3>
@@ -68,7 +71,7 @@
         
         <form method="POST" action="">
         
-            <table>
+            <table class="tbl-half">
                 <tr>
                     <td>Task Name: </td>
                     <td><input type="text" name="task_name" value="<?php echo $task_name; ?>" required="required" /></td>
@@ -157,13 +160,13 @@
                 </tr>
                 
                 <tr>
-                    <td><input type="submit" name="submit" value="UPDATE" /></td>
+                    <td><input class="btn-primary btn-lg" type="submit" name="submit" value="UPDATE" /></td>
                 </tr>
                 
             </table>
         
         </form>
-        
+        </div>
     </body>
 </html>
 

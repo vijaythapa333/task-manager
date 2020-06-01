@@ -6,9 +6,12 @@
 
     <head>
         <title>Task Manager with PHP and MySQL</title>
+        <link rel="stylesheet" href="<?php echo SITEURL; ?>css/style.css" />
     </head>
     
     <body>
+    
+    <div class="wrapper">
     
     <h1>TASK MANAGER</h1>
     
@@ -92,9 +95,9 @@
     
     <div class="all-tasks">
         
-        <a href="<?php SITEURL; ?>add-task.php">Add Task</a>
+        <a class="btn-primary" href="<?php SITEURL; ?>add-task.php">Add Task</a>
         
-        <table>
+        <table class="tbl-full">
         
             <tr>
                 <th>S.N.</th>
@@ -178,7 +181,7 @@
     </div>
     
     <!-- Tasks Ends Here -->
-    
+    </div>
     </body>
 
 </html>

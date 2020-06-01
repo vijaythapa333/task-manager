@@ -7,14 +7,17 @@ include('config/constants.php');
 <html>
     <head>
         <title>Task Manager with PHP and MySQL</title>
+        <link rel="stylesheet" href="<?php echo SITEURL; ?>css/style.css" />
     </head>
     
     <body>
         
+        <div class="wrapper">
+        
         <h1>TASK MANAGER</h1>
         
         
-        <a href="<?php echo SITEURL; ?>">Home</a>
+        <a class="btn-secondary" href="<?php echo SITEURL; ?>">Home</a>
         
         <h3>Manage Lists Page</h3>
         
@@ -58,9 +61,9 @@ include('config/constants.php');
         <!-- Table to display lists starts here -->
         <div class="all-lists">
             
-            <a href="<?php echo SITEURL; ?>add-list.php">Add List</a>
+            <a class="btn-primary" href="<?php echo SITEURL; ?>add-list.php">Add List</a>
             
-            <table>
+            <table class="tbl-half">
                 <tr>
                     <th>S.N.</th>
                     <th>List Name</th>
@@ -140,6 +143,6 @@ include('config/constants.php');
             </table>
         </div>
         <!-- Table to display lists ends here -->
-        
+        </div>
     </body>
 </html>
