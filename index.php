@@ -18,9 +18,39 @@
     
         <a href="<?php echo SITEURL; ?>">Home</a>
         
-        <a href="#">To Do</a>
-        <a href="#">Doing</a>
-        <a href="#">Done</a>
+        <?php 
+            
+            //Comment Displaying Lists From Database in ourMenu
+            $conn2 = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
+            
+            //SELECT DATABASE
+            $db_select2 = mysqli_select_db($conn2, DB_NAME) or die(mysqli_error());
+            
+            //Query to Get the Lists from database
+            $sql2 = "SELECT * FROM tbl_lists";
+            
+            //Execute Query
+            $res2 = mysqli_query($conn2, $sql2);
+            
+            //CHeck whether the query executed or not
+            if($res2==true)
+            {
+                //Display the lists in menu
+                while($row2=mysqli_fetch_assoc($res2))
+                {
+                    $list_id = $row2['list_id'];
+                    $list_name = $row2['list_name'];
+                    ?>
+                    
+                    <a href="<?php echo SITEURL; ?>list-task.php?list_id=<?php echo $list_id; ?>"><?php echo $list_name; ?></a>
+                    
+                    <?php
+                    
+                }
+            }
+            
+        ?>
+        
         
         
         <a href="<?php echo SITEURL; ?>manage-list.php">Manage Lists</a>
@@ -29,9 +59,40 @@
     
     <!-- Tasks Starts Here -->
     
+    <p>
+        <?php 
+        
+            if(isset($_SESSION['add']))
+            {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+            
+            if(isset($_SESSION['delete']))
+            {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+            
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update'];
+                unset($_SESSION['update']);
+            }
+            
+            
+            if(isset($_SESSION['delete_fail']))
+            {
+                echo $_SESSION['delete_fail'];
+                unset($_SESSION['delete_fail']);
+            }
+        
+        ?>
+    </p>
+    
     <div class="all-tasks">
         
-        <a href="#">Add Task</a>
+        <a href="<?php SITEURL; ?>add-task.php">Add Task</a>
         
         <table>
         
@@ -43,18 +104,74 @@
                 <th>Actions</th>
             </tr>
             
-            <tr>
-                <td>1. </td>
-                <td>Design a WEbsite</td>
-                <td>Medium</td>
-                <td>23/05/2020</td>
-                <td>
-                    <a href="#">Update </a>
-                    
-                    <a href="#">Delete</a>
+            <?php 
+            
+                //Connect Database
+                $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
                 
-                </td>
-            </tr>
+                //Select Database
+                $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error());
+                
+                //Create SQL Query to Get DAta from Databse
+                $sql = "SELECT * FROM tbl_tasks";
+                
+                //Execute Query
+                $res = mysqli_query($conn, $sql);
+                
+                //CHeck whether the query execueted o rnot
+                if($res==true)
+                {
+                    //DIsplay the Tasks from DAtabase
+                    //Dount the Tasks on Database first
+                    $count_rows = mysqli_num_rows($res);
+                    
+                    //Create Serial Number Variable
+                    $sn=1;
+                    
+                    //Check whether there is task on database or not
+                    if($count_rows>0)
+                    {
+                        //Data is in Database
+                        while($row=mysqli_fetch_assoc($res))
+                        {
+                            $task_id = $row['task_id'];
+                            $task_name = $row['task_name'];
+                            $priority = $row['priority'];
+                            $deadline = $row['deadline'];
+                            ?>
+                            
+                            <tr>
+                                <td><?php echo $sn++; ?>. </td>
+                                <td><?php echo $task_name; ?></td>
+                                <td><?php echo $priority; ?></td>
+                                <td><?php echo $deadline; ?></td>
+                                <td>
+                                    <a href="<?php echo SITEURL; ?>update-task.php?task_id=<?php echo $task_id; ?>">Update </a>
+                                    
+                                    <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>">Delete</a>
+                                
+                                </td>
+                            </tr>
+                            
+                            <?php
+                        }
+                    }
+                    else
+                    {
+                        //No data in Database
+                        ?>
+                        
+                        <tr>
+                            <td colspan="5">No Task Added Yet.</td>
+                        </tr>
+                        
+                        <?php
+                    }
+                }
+            
+            ?>
+            
+            
         
         </table>
     
