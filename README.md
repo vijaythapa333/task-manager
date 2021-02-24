@@ -34,7 +34,7 @@ Simple Task Manager web app with PHP and MySQL.
 
 2. Install any Text Editor (Sublime Text or Visual Studio Code or Atom or Brackets)
 
-### Installtion
+### Installation
 
 1. Download as as Zip or Clone this project
 2. Move this project to Root Directory
