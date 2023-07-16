@@ -1,0 +1,81 @@
+version: '3.5'
+
+networks:
+  backend:
+
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+      args:
+        - PHP_UPSTREAM_CONTAINER=php-fpm
+        - PHP_UPSTREAM_PORT=9000
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    volumes:
+      - ./:/var/www:cached
+      - .docker/logs/nginx/:/var/log/nginx
+      - ./docker/nginx/sites/:/etc/nginx/sites-available
+    ports:
+      - "80:80"
+    depends_on:
+      - php-fpm
+    networks:
+      backend:
+  mysql:
+    platform: "linux/x86_64"
+    build:
+      context: ./docker/mysql
+      args:
+        - MYSQL_VERSION=latest
+    environment:
+      - MYSQL_DATABASE=default
+      - MYSQL_USER=php
+      - MYSQL_PASSWORD=php
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - .docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+  workspace:
+    build:
+      context: ./docker/workspace
+      args:
+        - LARADOCK_PHP_VERSION=7.3
+        - COMPOSER_GLOBAL_INSTALL=true
+        - COMPOSER_VERSION=2
+        - INSTALL_MYSQL_CLIENT=true
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    volumes:
+      - ./:/var/www:cached
+    tty: true
+    networks:
+      - backend
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+      args:
+        - INSTALL_MYSQL_CLIENT
+        - LARADOCK_PHP_VERSION=7.3
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    volumes:
+      - ./php-fpm/php7.3.ini:/usr/local/etc/php/php.ini
+      - ./:/var/www:cached
+    ports:
+      - "9003:9003"
+    expose:
+      - "9000"
+    depends_on:
+      - workspace
+    networks:
+      - backend
+volumes:
+  mysql:

@@ -3,11 +3,10 @@
 session_start();
 
 //Create Constants to save Database Credentials
-define('LOCALHOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'task_manager');
+define('LOCALHOST', 'mysql');
+define('DB_USERNAME', 'php');
+define('DB_PASSWORD', 'php');
+define('DB_NAME', 'default');
 
-define('SITEURL', 'http://localhost/task-manager/');
-
+define('SITEURL', sprintf("http://%s/", $_SERVER['HTTP_HOST']));
 ?>

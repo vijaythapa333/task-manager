@@ -1,7 +1,6 @@
 <?php 
     include('config/constants.php');
 ?>
-
 <html>
     <head>
         <title>Task Manager with PHP and MySQL</title>
@@ -166,7 +165,6 @@
             
             //Redirect to Homepage
             header('location:'.SITEURL);
-            
         }
         else
         {
@@ -178,39 +176,3 @@
     }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
