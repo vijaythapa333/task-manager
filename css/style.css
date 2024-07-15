@@ -4,114 +4,89 @@
     Author - Vijay Thapa
 */
 
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: verdana;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+    font-family: Verdana, sans-serif; /* Added a fallback font */
 }
 
-.wrapper{
-    width: 70%;
+.wrapper {
+    width: 80%; /* Increased width for better content spacing */
     margin: 0 auto;
-    padding: 2%;
+    padding: 20px; /* Increased padding for better spacing */
 }
 
-h1{
+h1 {
     color: #3867d6;
-    margin-bottom: 2%;
-}
-h3{
-    margin: 2% 0;
+    margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
-.menu{
-    margin-bottom: 2%;
+h3 {
+    margin: 10px 0; /* Reduced margin for tighter spacing */
 }
 
-.menu a{
+.menu {
+    margin-bottom: 20px;
+}
+
+.menu a {
     font-weight: bold;
-    margin-right: 1%;
-    color: black;
+    margin-right: 10px;
+    color: #333; /* Darkened text color for better readability */
     text-decoration: none;
 }
 
-.menu a:hover{
+.menu a:hover {
     text-decoration: underline;
 }
 
-.btn-primary{
-    background-color: #26de81;
-    padding: 5px;
+.btn-primary,
+.btn-secondary {
+    display: inline-block; /* Ensures buttons are displayed inline */
+    padding: 10px 20px; /* Increased padding for better clickability */
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    border-radius: 5px; /* Added border radius for rounded corners */
+    cursor: pointer; /* Changed cursor to pointer on hover */
 }
 
-.btn-primary:hover{
+.btn-primary {
+    background-color: #26de81;
+    color: #333; /* Darkened text color for better readability */
+}
+
+.btn-primary:hover {
     background-color: #20bf6b;
 }
 
-.btn-secondary{
+.btn-secondary {
     background-color: #778ca3;
-    padding: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
+    color: #fff; /* Lightened text color for better contrast */
 }
-.btn-secondary:hover{
+
+.btn-secondary:hover {
     background-color: #4b6584;
 }
 
-.btn-lg{
-    width: 50%;
+.btn-lg {
+    width: 100%; /* Made button full width for better visibility */
+    margin-bottom: 10px; /* Added margin bottom for spacing */
 }
 
-
-.tbl-full{
+.tbl-full {
     width: 100%;
+    margin-top: 20px; /* Added margin top for spacing */
+    border-collapse: collapse; /* Collapsed borders for cleaner table appearance */
 }
 
-table tr th{
+table tr th,
+table tr td {
+    padding: 10px; /* Increased padding for better spacing */
     text-align: left;
-    border-bottom: 1px solid black;
-    padding: 1%;
-    padding-top: 3%;
+    border-bottom: 1px solid #ccc; /* Lightened border color for softer appearance */
 }
 
-table tr td{
-    padding: 1%;
+.tbl-half {
+    width: 50%; /* Adjusted width for better half-width table display */
 }
-
-.tbl-half{
-    width: 40%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
